@@ -23,7 +23,7 @@ def find_the_path():
 
 def print_dir_content(current_dir = find_the_path(), shift=0, extensions_colors=None):
     if extensions_colors is None:
-        extensions_colors = {'.py': Fore.YELLOW + Back.BLUE, '.txt':Fore.GREEN + Back.YELLOW}
+        extensions_colors = {'.py': Fore.YELLOW + Back.BLUE, '.txt': Fore.GREEN + Back.YELLOW}
 
     for path in current_dir.iterdir():
         if path.is_dir():
@@ -32,6 +32,8 @@ def print_dir_content(current_dir = find_the_path(), shift=0, extensions_colors=
         elif path.suffix in extensions_colors:
             styles = extensions_colors[path.suffix]
             print(' ' * shift + styles + path.name + Style.RESET_ALL)
+        else:
+            print(' ' * shift + path.name)
 
 
 print_dir_content()
