@@ -11,7 +11,7 @@ def input_error(error_message_key):
         def inner(*args, **kwargs):
             try:
                 return func(*args, **kwargs)
-            except ValueError:
+            except Exception:
                 return error_massages[error_message_key]
         return inner
     return decorator
