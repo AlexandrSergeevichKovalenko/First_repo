@@ -1,12 +1,26 @@
 from decor import input_error
 
-@input_error("add_contact")
+@input_error(
+    {
+        "ValueError": "Please provide a valid name and phone number.",
+        "TypeError": "Invalid input type.",
+        "IndexError": "You did not provide enough arguments."
+    },
+    expected_arg_count=2
+)
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
     return "Contact added."
 
-@input_error("change_contact")
+@input_error(
+    {
+        "ValueError": "Please provide a valid name and phone number.",
+        "TypeError": "Invalid input type.",
+        "IndexError": "You did not provide enough arguments."
+    },
+    expected_arg_count=2
+)
 def change_contact(args, contacts):
     name, phone = args
     if name in contacts.keys():
@@ -15,16 +29,20 @@ def change_contact(args, contacts):
     else:
         return (f"There is no person with {name} name")
 
-@input_error("show_phone")
+@input_error(
+    {
+        "ValueError": "Please provide a valid name.",
+        "TypeError": "Invalid input type.",
+        "IndexError": "You did not provide enough arguments."
+    },
+    expected_arg_count=1
+)
 def show_phone(args, contacts):
-    if len(args) > 0:
-        name = args[0]
-        if name in contacts.keys():
-            return contacts[name]
-        else:
-            return "The is no the name you have asked"
+    name = args[0]
+    if name in contacts.keys():
+        return contacts[name]
     else:
-        return "A person name is to be inputed"
+        return "The is no the name you have asked"
 
 def show_all(contacts):
     if len(contacts) > 0:
