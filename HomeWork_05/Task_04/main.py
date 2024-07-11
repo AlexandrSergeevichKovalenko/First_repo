@@ -1,7 +1,6 @@
 from parser_inputed_line import parse_input
 from functions_block import add_contact, change_contact, show_phone, show_all
 
-
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
