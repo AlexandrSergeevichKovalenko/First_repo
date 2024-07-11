@@ -67,7 +67,7 @@ def display_log_counts(counts: dict):
         print(f"{level:<{offset_1}}|{count:<{offset_2}}")
 
 def display_log_details(logs: list, log_level:str):
-    print(f"\nДеталі логів для рівня '{log_level.upper()}':\n")
+    #print(f"\nДеталі логів для рівня '{log_level.upper()}':\n")
     for log in logs:
         print(f"{log['date']} {log['time']} - {log['message']}")
 
