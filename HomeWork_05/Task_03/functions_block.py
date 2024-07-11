@@ -56,14 +56,20 @@ def count_logs_by_level(logs: list) -> dict:
         dct[log["level"]] += 1
     return dct
 
-def display_log_counts(counts: dict, log_level = None):
+def display_log_counts(counts: dict):
     lev_header = "Рівень логування"
     quant_header = "Кількість"
-    print(f"{lev_header}: < 17 | {quant_header}:< 10")
-    print("-"*18 + "|" + "-"*10)
+    offset_1 = 17
+    offset_2 = 10
+    print(f"{lev_header:<{offset_1}}|{quant_header:<{offset_2}}")
+    print(f"{'-'*offset_1}|{'-'*offset_2}")
     for level, count in counts.items():
-        print(f"{level}: < 17 | {count}:< 10")
+        print(f"{level:<{offset_1}}|{count:<{offset_2}}")
 
+def display_log_details(logs: list, log_level:str):
+    print(f"\nДеталі логів для рівня '{log_level.upper()}':\n")
+    for log in logs:
+        print(f"{log['date']} {log['time']} - {log['message']}")
 
 
 

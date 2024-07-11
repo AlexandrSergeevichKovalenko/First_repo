@@ -1,0 +1,3 @@
+#just for myself: link to the file "logfile.log" to copy into the command line to check the programm
+
+python main.py /Users/alexandr/Desktop/REPOSITORY/First_repo/HomeWork_05/Task_03/logfile.log error
