@@ -64,10 +64,7 @@ def display_log_counts(counts: dict, log_level = None):
     for level, count in counts.items():
         print(f"{level}: < 17 | {count}:< 10")
 
-    if log_level:
-        print(f"\nДеталі логів для рівня '{log_level.upper()}':\n")
-        for log in filter_logs_by_level(logs, log_level):
-            print(f"{log["date"]} {log["time"]} - {log["message"]}")
+
 
 
 
