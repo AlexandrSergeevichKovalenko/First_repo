@@ -57,8 +57,8 @@ class AddressBook(UserDict):
     def add_record(self, note: Record):
         self.data[note.name.value] = note
 
-
-    def find(self,name: str) -> Record:
+    #return Record object 
+    def find(self, name: str) -> Record:
         if name in self.data:
             return self.data[name]
         return None
@@ -66,7 +66,7 @@ class AddressBook(UserDict):
     def delete(self, name:str) -> None:
         if name in self.data:
             del self.data[name]
-
+    #str method is created to output the content in an understandable way
     def __str__(self):
         output = ["AddressBook: "]
         for key in self.data:
