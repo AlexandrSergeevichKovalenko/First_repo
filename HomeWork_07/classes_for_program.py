@@ -108,6 +108,8 @@ class AddressBook(UserDict):
         today = date.today()
 
         for user, dict_record in self.data.items():
+            #the first is to check if the dict_record object:Record has something in attribute birthday(it can happen, 
+            # that there is a name and a phone, but there is no birthday date entered by user)
             if dict_record.birthday:
                 birthday_this_year = dict_record.birthday.value.replace(year=today.year).date()
                 if birthday_this_year < today:
