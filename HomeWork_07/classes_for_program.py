@@ -102,7 +102,6 @@ class AddressBook(UserDict):
             return AddressBook.find_next_weekday(birthday, 0)
         return birthday
 
-    
     def get_upcoming_birthdays(self, days=7):
         upcoming_birthdays = []
         today = date.today()
