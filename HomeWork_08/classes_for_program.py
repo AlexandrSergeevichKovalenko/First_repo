@@ -1,10 +1,6 @@
 from collections import UserDict
 from datetime import datetime, date, timedelta
 import re
-import pickle
-from pathlib import Path
-
-FILENAME = Path("addressbook.pkl")
 
 class Field:
     def __init__(self, value):
@@ -72,7 +68,6 @@ class Record:
 
 
 class AddressBook(UserDict):
-
     #adding a record to the dictionary 
     def add_record(self, note: Record):
         self.data[note.name.value] = note
@@ -124,7 +119,7 @@ class AddressBook(UserDict):
                     upcoming_birthdays.append({"name": user, "birthday": AddressBook.date_to_string(congratulation_date)})
         return upcoming_birthdays
 
-
+    
     #str method is created to output the content in an understandable way
     def __str__(self):
         output = ["AddressBook: "]
@@ -133,17 +128,6 @@ class AddressBook(UserDict):
             output.append(contact_description_line)
         total_info_line = "\n".join(output)
         return total_info_line
-    
-def save_data(book, filename = FILENAME):
-    with open(filename, "wb") as record_file:
-        pickle.dump(book, record_file)
-
-def load_data():
-    book = AddressBook()
-    if FILENAME.is_file():
-        with open(FILENAME, "rb") as record_file:
-            book = pickle.load(record_file)
-    return book
     
     
     
