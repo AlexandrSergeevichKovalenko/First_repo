@@ -4,6 +4,7 @@ from classes_for_program import *
 from context_manager import *
 
 def main():
+    #calling contextmanager from context_manager.py file
     with record_manager() as book:
         print("Welcome to the assistant bot!")
         while True:
