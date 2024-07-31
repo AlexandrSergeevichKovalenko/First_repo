@@ -1,7 +1,6 @@
 from collections import UserDict
 from datetime import datetime, date, timedelta
 import re
-import pickle
 from pathlib import Path
 
 FILENAME = Path("addressbook.pkl")
@@ -133,19 +132,6 @@ class AddressBook(UserDict):
             output.append(contact_description_line)
         total_info_line = "\n".join(output)
         return total_info_line
-
-#book instance serialization function using pickle module
-def save_data(book: AddressBook, filename = FILENAME):
-    with open(filename, "wb") as record_file:
-        pickle.dump(book, record_file)
-
-#loading book from file or creating a new book instance if there is no file
-def load_data():
-    book = AddressBook()
-    if FILENAME.is_file():
-        with open(FILENAME, "rb") as record_file:
-            book = pickle.load(record_file)
-    return book
     
     
     

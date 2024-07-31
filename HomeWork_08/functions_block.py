@@ -1,5 +1,6 @@
 from decor import input_error
 from classes_for_program import *
+import pickle
 
 @input_error(expected_arg_count=2)
 def add_contact(args, book: AddressBook):
@@ -73,6 +74,19 @@ def birthdays(book):
         return str
     else:
         return f"The data base is empty."
+
+#book instance serialization function using pickle module
+def save_data(book: AddressBook, filename = FILENAME):
+    with open(filename, "wb") as record_file:
+        pickle.dump(book, record_file)
+
+#loading book from file or creating a new book instance if there is no file
+def load_data():
+    book = AddressBook()
+    if FILENAME.is_file():
+        with open(FILENAME, "rb") as record_file:
+            book = pickle.load(record_file)
+    return book
 
 
 
